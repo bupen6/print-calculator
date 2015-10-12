@@ -1,0 +1,46 @@
+Prerequisites:
+Java 7 or above
+MySQL database
+
+Please execute sql commands given in sql file in-order in MySQL database to prepare it.
+
+Dependencies:
+com.mysql.jdbc_5.1.5.jar
+mockito-all-1.9.5.jar
+JUnit4 jar
+
+Database credentials can be changed from com.printcalc.constants.PrintCalcConstants
+
+Resource folder has printjobs.csv and has to be in classpath
+
+Running The Application:
+Execute through main method in com.printcalc.main.Utility
+
+API Client Info : Run by single step:
+Call calculatePrice() instance method of CalculationManager
+
+
+*******************************************INFO*********************************
+Design Patterns And Principles Used:
+Single Responsibility
+Factory Pattern
+
+Interfaces:
+GenericInput
+GenericDisplay
+GenericPaper
+
+Object Oriented Design is Used to keep components loosely coupled:
+For example input source and output destination can be easily changed according to the requirement, by giving implementations of GenericInput
+and GenericDisplay.
+
+Support for other paper sizes, like A5, can be added easily by implementing GenericPaper.
+
+Factory is used to generate paper types, like currently only A4.
+
+All the components are designed to serve their own responsibilities.
+
+Caching mechanism is used to get the rules: If rule is not found in cache then it fetches the same from database and updates the cache
+and also returns the rule to the caller, otherwise returns from cache, so the interaction with database is minimized.
+
+All the important documents are present in Doc folder
