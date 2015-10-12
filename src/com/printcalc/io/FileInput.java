@@ -10,6 +10,11 @@ import java.util.TreeMap;
 
 import com.printcalc.model.Job;
 
+/*
+ * author bhupendra
+ * 
+ * Reads jobs from file through resource folder and returns as Map
+ */
 public class FileInput implements GenericInput {
 
 	private Map<Integer, Job> jobs;
@@ -40,6 +45,12 @@ public class FileInput implements GenericInput {
 				jobs.put(new Random().nextInt(10000), job);
 			}
 		} catch (IOException e) {
+			try {
+				is.close();
+				br.close();
+			} catch (IOException e1) {
+				e1.printStackTrace();
+			}
 			e.printStackTrace();
 		}
 		return jobs;
