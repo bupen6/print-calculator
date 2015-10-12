@@ -52,6 +52,13 @@ public class FileInput implements GenericInput {
 				e1.printStackTrace();
 			}
 			e.printStackTrace();
+		} finally{
+			try {
+				is.close();
+				br.close();
+			} catch (IOException e1) {
+				e1.printStackTrace();
+			}
 		}
 		return jobs;
 	}
